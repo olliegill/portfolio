@@ -4,7 +4,10 @@
 
 // Custom Styles
 $mobile: new-breakpoint(max-width 600px);
-$tablet: new-breakpoint(max-width 1000px);
+$tablet: new-breakpoint(max-width 870px);
+$teal: #009688;
+$teal-light: #B2DFDB;
+$font1: 'Raleway', sans-serif;
 @import url(http://weloveiconfonts.com/api/?family=brandico);
 
 /* brandico */
@@ -20,20 +23,31 @@ $tablet: new-breakpoint(max-width 1000px);
   top: 50%;
 }
 
+* {
+  outline: 0;
+}
 
 /* @import url(http://fonts.googleapis.com/css?family=Raleway:400,,800,900);
 html{
   width:100%;
   height: 100%;
 } */
-body{
+body {
   background: -webkit-linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255));
   background: linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255));
   //margin: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Raleway', sans-serif;
+  //font-family: 'Raleway', sans-serif;
   //@include outer-container;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .header-container {
@@ -65,6 +79,12 @@ body{
   text-align: center;
   text-transform: uppercase;
   padding-top: 10px;
+  font-family: $font1;
+
+  @include media($mobile) {
+    @include span-columns (10);
+    @include shift(1);
+  }
 }
 
 .inner-wrap {
@@ -84,6 +104,9 @@ body{
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  font-family: $font1;
+  z-index: 1000;
+  box-shadow: 0 8px 6px -6px black;
 
   ul {
     margin: 0 0 0 2em;
@@ -128,22 +151,32 @@ body{
 
 .about-container {
   @include outer-container;
-  outline: solid red 1px;
 }
 
 .about p {
-  outline: solid red 1px;
+  font-size: 1.5em;
+  color: white;
+  @include span-columns(7);
+  display: inline-block;
+  float: right;
+  margin: 0;
+  padding: 1em;
+
+  @include media($tablet) {
+    @include span-columns(12);
+  }
 }
 
 .me {
+  height: 360px;
   overflow: hidden;
   display: inline-block;
-/*   height: 50px;
-width: 50px; */
+  border-radius: 10px;
   @include media($mobile) {
     @include span-columns(12);
   }
 }
+
 
 .section-headers {
   display: inline-block;
@@ -152,6 +185,7 @@ width: 50px; */
   width: 75%;
   color: white;
   letter-spacing: 1px;
+  font-family: $font1;
 }
 
 .work {
@@ -159,14 +193,434 @@ width: 50px; */
 }
 
 .work-container {
-  outline: solid red 1px;
   @include outer-container;
+
+  h1 {
+    margin-top: 1em;
+    margin-left: .5em;
+  }
+}
+
+.each-work {
+  height: 700px;
+  padding: 1em;
+
+  @include media($mobile) {
+    height: 1050px;
+  }
+
+  @include media($tablet) {
+    height: 1000px;
+  }
+
+  h3 {
+    font-size: 2em;
+    font-family: $font1;
+    color: white;
+  }
+}
+
+.each-work:first-child {
+  height: 800px;
+
+  @include media($mobile) {
+    height: 1150px;
+  }
+
+  @include media($tablet) {
+    height: 1150px;
+  }
+
+  .work-img {
+    background: url('../images/upstage.png') no-repeat;
+    background-size: cover;
+    height: 640px;
+
+    @include media($mobile) {
+      height: 450px;
+    }
+
+    @include media($tablet) {
+      height: 450px;
+    }
+
+  }
+}
+
+.each-work:nth-child(2) {
+  background: #616161;
+
+  @include media($mobile) {
+    height: 1000px;
+  }
+
+  .work-img {
+    background: url('../images/tandemland.png')  center no-repeat;
+    background-size: 105%;
+    height: 350px;
+  }
+}
+
+.each-work:nth-child(3) {
+  background: #757575;
+
+  @include media($mobile) {
+    height: 1000px;
+  }
+
+  .work-img {
+    background: url('../images/swamp.png') center no-repeat;
+    background-size: 120%;
+    height: 350px;
+  }
+}
+
+.each-work:nth-child(4) {
+  background: #9e9e9e;
+
+  @include media($mobile) {
+    height: 1100px;
+  }
+
+  .work-img {
+    background: url('../images/super.png') center no-repeat;
+    background-size: cover;
+  }
+}
+
+.each-work:nth-child(5) {
+  background: #bdbdbd;
+
+  @include media($mobile) {
+    height: 1000px;
+  }
+
+
+  .work-img {
+    background: url('../images/surf.png') no-repeat;
+    background-size: cover;
+  }
+}
+
+.work-img {
+  //outline: solid black 1px;
+  border-radius: 5px;
+  height: 500px;
+  width: 50%;
+  display: inline-block;
+  @include span-columns(5.5);
+
+  @include media($tablet) {
+    @include span-columns(8);
+    @include shift(2);
+    height: 400px;
+  }
+
+  @include media($mobile) {
+    @include span-columns(12);
+    @include shift(0);
+    height: 450px;
+  }
+
+
+}
+
+.work-blurb {
+  color: white;
+  height: 550px;
+  width: 50%;
+  float: right;
+  display: inline-block;
+  padding: 0 1em;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+
+  @include media($mobile) {
+    width: 100%;
+    font-size: 1em;
+    height: 400px;
+  }
+
+
+      @include media($tablet) {
+        width: 100%;
+       }
+
+  p {
+    z-index: 1;
+    padding-left: 1em;
+
+    @include media($mobile) {
+      padding-top: 1.5em;
+    }
+
+
+  }
 }
 
 
 
+section {
+  @include transition(all .3s ease-in-out);
+  margin-top: 1.5em;
+  max-height: 30px;
+  overflow: hidden;
+  width: 100%;      ///////
+  box-shadow: 0 0 5px #000;
+  z-index: 10;
+
+  @include media($tablet) {
+    @include span-columns(8);
+    @include shift(2);
+  }
+
+  @include media($mobile) {
+    @include span-columns(12);
+    @include shift(0);
+  }
+
+  &.expanded {
+    max-height: 500px;
+  }
+}
+
+dt {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFF;
+  background: $teal;//#105B63;
+  padding: 5px 10px;
+  position: relative;
+  cursor: pointer;
+  z-index: 500;
+}
+
+dd {
+  background: #FFF;
+  color: #105B63;
+  margin: 0;
+  padding: 5px 15px;
+  z-index: 500;
+}
+
+.slide span {
+  float: right;
+}
+
+.slide dt {
+  &::after,
+  &::before {
+    @include transition(all .4s linear);
+    content: "";
+    width: 2px;
+    height: 15px;
+    background: #FFD34E;
+    position: absolute;
+    right: 10px;
+    top: 7.5px;
+  }
+
+  &::after,
+  &::before {
+    @include transition(all .4s linear);
+    content: "";
+    width: 2px;
+    height: 15px;
+    background: #FFD34E;
+    position: absolute;
+    right: 10px;
+    top: 7.5px;
+  }
+
+  &::after {
+    @include transform(rotate(45deg));
+  }
+
+   &::before {
+      @include transform(translateX(-10px) rotate(-45deg));
+    }
+
+  &.open {
+    &::before {
+      @include transform(rotate(-760deg));
+
+  }
+
+    &::after {
+      @include transform(translateX(-10px) rotate(760deg));
+       }
+  }
+}
+
+.button-div {
+  margin: 2em 0;
+
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+}
+
+.button-div div:first-child {
+
+  @include media($tablet) {
+    margin-left: 4em;
+   }
+
+   @include media($mobile) {
+     margin-left: 0;
+   }
+}
+
+.button-div div:last-child {
+  float: right;
+
+  @include media($tablet) {
+    margin-right: 4em;
+  }
+
+  @include media($mobile) {
+    margin-right: 0;
+  }
+
+}
+
+.Button {
+  //margin-right: 2em;
+  //margin-left: 3em;
+  display: inline-block;
+
+  @include media($mobile) {
+    margin: 0;
+  }
+
+  &.Button--start {
+    width: 120px;
+    height: 50px;
+
+    button {
+      border-radius: 4px;
+    }
+  }
+
+  &.Button--select {
+    width: 60px;
+    height: 60px;
+
+    button {
+      border-radius: 50%;
+    }
+  }
+}
+
+button {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  box-shadow: 0px 0px 0px #00796B;
+  background: radial-gradient(ellipse at center, $teal 0%, $teal 100%);
+  transition: transform 0.15s, box-shadow 0.15s;
+  transform: rotateX(0deg) translateY(0);
+
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+
+  &:hover {
+    box-shadow: 0px 5px 0px #00796B;
+    transform: rotateX(30deg) translateY(0);
+  }
+
+  &:hover:active {
+    text-shadow: 0 0 4px #004D40;
+    box-shadow: 0 1px 0 #423847;
+    background: radial-gradient(ellipse at center, $teal 0%, #00796B 100%);
+    transition: transform 0.05s, box-shadow 0.05s;
+    transform: rotateX(30deg) translateY(4px);
+  }
+
+  span {
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    //font-style: italic;
+    color: white;
+    text-transform: uppercase;
+    transform: translate3d(0,0,0);
+  }
+}
+
+/////////////////CODE FOR ROTATING BUTTONS //////////////////////
+
+/* .scene1 {
+  float: left;
+  perspective: 1000;
+  width: 10em;
+position: absolute;
+top: 50%;
+left: 50%;
+  margin-left: -5em;
+  margin-top: -5em;
+}
+
+
+.scene2 {
+  float: right;
+}
+.cube {
+  color: #ccc;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+  transform-style: preserve-3d;
+  transform-origin: 100% 50%;
+  width: 10em;
+  height: 4em;
+
+  &:hover {
+    transform: rotateX(-90deg);
+  }
+}
+
+.side {
+  box-sizing: border-box;
+  position: absolute;
+  display: inline-block;
+  height: 4em;
+  width: 10em;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 1.5em;
+}
+
+.top {
+  background: #fff;
+  color: #222229;
+  transform: rotateX(90deg) translate3d(0, 0, 2em);
+}
+
+.front {
+  background: #222229;
+  color: #fff;
+  box-shadow: inset 0 0 0 5px #fff;
+  transform: translate3d(0, 0, 2em);
+} */
+/////////////////////////////////////////////////////////////////////////////
+
+
+.charts-container {
+  @include outer-container;
+}
+
 .charts {
   height: 500px;
-  width: 100%;
+  width: 50%;
   outline: solid red 1px;
+  @include span-columns(12);
+}
+
+#chart1 {
+  outline: solid blue 1px;
+  @include span-columns(6);
 }
