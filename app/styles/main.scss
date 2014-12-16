@@ -608,19 +608,75 @@ left: 50%;
 } */
 /////////////////////////////////////////////////////////////////////////////
 
+.my-charts {
+  background: #FEFEFD;
+
+  .section-headers {
+    @include media($tablet) {
+    margin-left: .5em;
+  }
+  }
+}
 
 .charts-container {
   @include outer-container;
+  font-family: $font1;
+
+  h1 {
+    color: black;
+
+
+  }
 }
 
 .charts {
-  height: 500px;
+  height: 550px;
   width: 50%;
-  outline: solid red 1px;
   @include span-columns(12);
+
+  h1 {
+    //outline: solid red 1px;
+    @include span-columns(5);
+    display: inline-block;
+
+    @include media($tablet) {
+      //@include span-columns(12);
+      margin-left: .5em;
+    }
+  }
+}
+
+.charts h1:nth-child(2) {
+  @include shift(1);
 }
 
 #chart1 {
-  outline: solid blue 1px;
+  //outline: solid blue 1px;
   @include span-columns(6);
+
+  @include media($tablet) {
+    //@include span-columns(12);
+  }
+}
+
+#chart2 {
+  //outline: solid pink 1px;
+  @include span-columns(6);
+  float: right;
+}
+
+
+#chart3 {
+  //outline: solid blue 1px;
+  @include span-columns(12);
+  height: 500px;
+
+  @include media($tablet) {
+    height: 400px;
+  }
+
+  @include media($mobile) {
+    height: 300px;
+  }
+
 }
