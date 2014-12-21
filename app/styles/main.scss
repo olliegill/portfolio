@@ -680,3 +680,28 @@ left: 50%;
   }
 
 }
+
+#chart4 {
+  //outline: solid red 1px;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: $teal-light;
+  stroke: $teal;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 11px sans-serif;
+  font-weight: bold;
+}
+
+.link {
+  fill: none;
+  stroke: #E0E0E0;
+  stroke-width: 1.5px;
+}
