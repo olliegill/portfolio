@@ -147,6 +147,15 @@ li {
   background: #CCCCCC;
   padding-left: 1em;
   padding-bottom: 1em;
+
+  a {
+    color: #434343;
+    text-decoration: none;
+  }
+}
+
+.about a:hover {
+  color: grey;
 }
 
 .about-container {
